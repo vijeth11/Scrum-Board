@@ -3,7 +3,7 @@ It is a digital scrum board which is built using Django and Angular. This projec
 
 
 
-#Commands for Windows :
+# Commands for Windows :
 
 1. python3 -m venv djangular 
 2. cd djangular
@@ -11,7 +11,7 @@ It is a digital scrum board which is built using Django and Angular. This projec
 4. pip3 install django
 5. django-admin startproject djangular
 
-#Commands for Linux:
+# Commands for Linux:
 
 1. python3 -m venv djangular 
 2. cd djangular
