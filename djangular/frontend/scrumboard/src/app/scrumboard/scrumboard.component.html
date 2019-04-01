@@ -17,11 +17,17 @@
             <div class="row">
             <mat-form-field style="width:25%">
               <mat-label>Select List</mat-label>
-              <mat-select [(value)]="Lists[0]" name="List">
+              <mat-select [(value)]="selectedValue1" name="selectedValue1">
                 <mat-option *ngFor="let List of Lists" [value]="List">
                   {{List}}
                 </mat-option>
               </mat-select>
+            </mat-form-field>
+            <mat-form-field style="width:25%;padding-left:3vh;">
+                <input matInput type="number" placeholder="Story" value=0>
+            </mat-form-field>
+            <mat-form-field style="width:25%;padding-left:3vh;">
+                <input matInput type="number" placeholder="Value" value=0>
             </mat-form-field>
             </div>
           <mat-action-row style="text-align: right;">
@@ -55,11 +61,17 @@
                 <div class="row">
                 <mat-form-field style="width:25%">
                   <mat-label>Select List</mat-label>
-                  <mat-select [(value)]="Lists[1]" name="List">
+                  <mat-select [(value)]="selectedValue2" name="selectedValue2">
                     <mat-option *ngFor="let List of Lists" [value]="List">
                       {{List}}
                     </mat-option>
                   </mat-select>
+                </mat-form-field>
+                <mat-form-field style="width:25%;padding-left:3vh;">
+                    <input matInput type="number" placeholder="Story" value=0>
+                </mat-form-field>
+                <mat-form-field style="width:25%;padding-left:3vh;">
+                    <input matInput type="number" placeholder="Value" value=0>
                 </mat-form-field>
                 </div>
               <mat-action-row style="text-align: right;">
@@ -88,15 +100,21 @@
            {{title}}
           </mat-expansion-panel-header>
 
-            <textarea matInput placeholder="Add a Discription" style="width:100%;height:100px"></textarea>
+            <textarea matInput placeholder="Add a Discription" style="width:100%;height:100px;"></textarea>
             <div class="row">
             <mat-form-field style="width:25%">
               <mat-label>Select List</mat-label>
-              <mat-select [(value)]="Lists[2]" name="List">
+              <mat-select [(value)]="selectedValue3" name="selectedValue3">
                 <mat-option *ngFor="let List of Lists" [value]="List">
                   {{List}}
                 </mat-option>
               </mat-select>
+            </mat-form-field>
+            <mat-form-field style="width:25%;padding-left:3vh;">
+                <input matInput type="number" placeholder="Story" value=0>
+            </mat-form-field>
+            <mat-form-field style="width:25%;padding-left:3vh;">
+                <input matInput type="number" placeholder="Value" value=0>
             </mat-form-field>
             </div>
           <mat-action-row style="text-align: right;">

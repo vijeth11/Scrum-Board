@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSelectModule,
     MatFormFieldModule,
     FlexLayoutModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

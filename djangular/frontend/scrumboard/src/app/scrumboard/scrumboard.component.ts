@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScrumboardComponent implements OnInit {
 
-  selectedValue:String="TODO";
+  selectedValue1:String="TODO";
+  selectedValue2:String="Started";
+  selectedValue3:String="Finished";
   Lists:any=["TODO","Started","Finished"]
   Titles:any=[" This is the expansion 1 title","This is the expansion 2 title"]
   constructor() { }
