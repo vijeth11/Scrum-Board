@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ScrumboardComponent } from './scrumboard/scrumboard.component';
 import {MatButtonModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import {MatButtonModule} from '@angular/material';
     MatExpansionModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,20 @@
 
 .example-card {
+  min-width:100px;
   max-width: 400px;
+  width: 100%;
+  margin: 3vh;
 }
+
+
+#card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  }
+
+  .cardListItem {
+    flex: 0 1 calc(33.3% - 32px);
+  }
 
