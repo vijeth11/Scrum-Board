@@ -21,6 +21,6 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('scrumboard/',include('scrumboard.urls')),
+    url(r'^',include('scrumboard.urls')),
 	 url(r'^(?!/?static/)(?!/?media/)(?P<path>.*\..*)$',RedirectView.as_view(url='/static/%(path)s', permanent=False)),
 ]

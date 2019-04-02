@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,11 +14,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'ang/styles.css' %}"></head>
+<link rel="stylesheet" href="{% static 'styles.css' %}"></head>
 <body>
   <app-root></app-root>
-<script type="text/javascript" src="{% static 'app/runtime.js' %}"></script>
-<script type="text/javascript" src="{% static 'app/es2015-polyfills.js' %}" nomodule></script>
-<script type="text/javascript" src="{% static 'app/polyfills.js' %}"></script>
-<script type="text/javascript" src="{% static 'app/main.js' %}"></script></body>
+<script type="text/javascript" src="{% static 'runtime.js' %}"></script>
+<script type="text/javascript" src="{% static 'es2015-polyfills.js' %}" nomodule></script>
+<script type="text/javascript" src="{% static 'polyfills.js' %}"></script>
+<script type="text/javascript" src="{% static 'main.js' %}"></script></body>
 </html>
