@@ -119,4 +119,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles') #never keep STATIC_ROOT and STATICFILES_DIRS same path as while runserver is executed it copies the static data from STATICFILES_DIRS to STATIC_ROOT path
+
 STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'),)
+

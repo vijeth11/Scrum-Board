@@ -17,7 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from scrumboard.api import ListApi,CardApi
 from django.conf.urls import url
+from django.views.generic import RedirectView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('scrumboard/',include('scrumboard.urls'))
+    path('scrumboard/',include('scrumboard.urls')),
+	 url(r'^(?!/?static/)(?!/?media/)(?P<path>.*\..*)$',RedirectView.as_view(url='/static/%(path)s', permanent=False)),
 ]
