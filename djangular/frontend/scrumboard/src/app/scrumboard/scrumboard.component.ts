@@ -25,10 +25,14 @@ export class ScrumboardComponent implements OnInit {
     this.listService.getLists().subscribe((result)=>{
       this.Lists=result;
       console.log(result);
+    },(error)=>{
+      alert(error);
     })
     this.cardservice.getCards().subscribe((result)=>{
       this.cards=result;
       console.log(result);
+    },(error)=>{
+      alert(error);
     })
   }
 
@@ -49,6 +53,8 @@ export class ScrumboardComponent implements OnInit {
       this.cardservice.addNewCard(result).subscribe((result)=>{
             console.log(result);
             this.updateCardsList();
+      },(error)=>{
+        alert(error);
       });
 
     });
@@ -65,6 +71,8 @@ export class ScrumboardComponent implements OnInit {
     this.cardservice.deleteCard(id).subscribe((result)=>{
       console.log(result);
       this.updateCardsList();
+    },(error)=>{
+      alert(error);
     });
   }
 }
