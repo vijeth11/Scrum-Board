@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Add Card</h2>
+<mat-dialog-content>
+    <input matInput placeholder="Add Title" #title>
+    <textarea matInput placeholder="Add a Discription" style="width:100%;height:100px;" #description></textarea>
+    <div class="row">
+    <mat-form-field style="width:25%">
+      <mat-label>Select List</mat-label>
+      <mat-select [(value)]="selectedValue3" name="selectedValue3">
+        <mat-option *ngFor="let List of Lists" (click)="selectionclicked(List)" [value]="List.id">
+          {{List.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field style="width:25%;padding-left:3vh;">
+        <input matInput type="number" placeholder="Story" #story>
+    </mat-form-field>
+    <mat-form-field style="width:25%;padding-left:3vh;">
+        <input matInput type="number" placeholder="Value"  #business>
+    </mat-form-field>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="onNoClick()">No</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button (click)="onYesClick(title.value,description.value,story.value,business.value)">Yes</button>
+</mat-dialog-actions>

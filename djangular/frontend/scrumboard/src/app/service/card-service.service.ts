@@ -77,4 +77,17 @@ export class CardServiceService {
   getCardsbyId(id:number):Observable<card[]>{
     return of(this.cards.filter((card)=>(card.id==id))).pipe(delay(100));
   }
+
+  addNewCard(Newcard:any):Observable<card>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.post<card>('http://127.0.0.1:8000/scrumboards/cards/',Newcard,httpOptions).pipe(catchError(this.processhttpmsg.handleError))
+  }
+
+  deleteCard(id:number):Observable<any>{
+    return this.http.delete<any>('http://127.0.0.1:8000/scrumboards/cards/'+id+'/').pipe(catchError(this.processhttpmsg.handleError))
+  }
 }

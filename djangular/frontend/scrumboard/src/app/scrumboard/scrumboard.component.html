@@ -30,7 +30,7 @@
             </mat-form-field>
             </div>
           <mat-action-row style="text-align: right;">
-            <button mat-button class="btn btn-danger">Remove</button>
+            <button mat-button class="btn btn-danger" (click)="deleteCard(card.id)">Remove</button>
             <button mat-button class="btn btn-success">Update</button>
           </mat-action-row>
         </mat-expansion-panel>
@@ -38,7 +38,7 @@
       </mat-accordion>
     </mat-card-content>
     <mat-card-actions style="text-align: right;">
-      <button mat-button class="btn btn-success">ADD</button>
+      <button mat-button class="btn btn-success" (click)="openDialog()">ADD</button>
     </mat-card-actions>
   </mat-card>
 </div>
@@ -74,7 +74,7 @@
                 </mat-form-field>
                 </div>
               <mat-action-row style="text-align: right;">
-                <button mat-button class="btn btn-danger">Remove</button>
+                <button mat-button class="btn btn-danger" (click)="deleteCard(card.id)">Remove</button>
                 <button mat-button class="btn btn-success">Update</button>
               </mat-action-row>
             </mat-expansion-panel>
@@ -82,7 +82,7 @@
       </mat-accordion>
     </mat-card-content>
     <mat-card-actions style="text-align: right;">
-      <button mat-button class="btn btn-success">ADD</button>
+      <button mat-button class="btn btn-success" (click)="openDialog()">ADD</button>
     </mat-card-actions>
   </mat-card>
  </div>
@@ -117,7 +117,7 @@
             </mat-form-field>
             </div>
           <mat-action-row style="text-align: right;">
-            <button mat-button class="btn btn-danger">Remove</button>
+            <button mat-button class="btn btn-danger" (click)="deleteCard(card.id)">Remove</button>
             <button mat-button class="btn btn-success">Update</button>
           </mat-action-row>
         </mat-expansion-panel>
@@ -125,7 +125,7 @@
       </mat-accordion>
     </mat-card-content>
     <mat-card-actions style="text-align: right;">
-      <button mat-button class="btn btn-success">ADD</button>
+      <button mat-button class="btn btn-success" (click)="openDialog()">ADD</button>
     </mat-card-actions>
   </mat-card>
 </div>

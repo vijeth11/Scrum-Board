@@ -14,12 +14,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatInputModule} from '@angular/material/input';
 import {HttpModule} from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddcardComponent } from './addcard/addcard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ScrumboardComponent
+    ScrumboardComponent,
+    AddcardComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     HttpModule,
     HttpClientModule,
+    MatDialogModule,
   ],
+  entryComponents: [ AddcardComponent ],
   providers: [],
   bootstrap: [AppComponent]
 })
