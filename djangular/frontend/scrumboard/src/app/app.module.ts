@@ -12,6 +12,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatInputModule} from '@angular/material/input';
+import {HttpModule} from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     FlexLayoutModule,
     MatInputModule,
+    HttpModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

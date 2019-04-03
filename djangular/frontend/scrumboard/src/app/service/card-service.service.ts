@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { delay,catchError,map } from 'rxjs/operators';
 import {card} from '../shared/cards';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {ProcesshttpmsgService} from './processhttpmessage.service';
 @Injectable({
   providedIn: 'root'
 })
 export class CardServiceService {
 
-  constructor() { }
+  constructor( private http:HttpClient, private processhttpmsg:ProcesshttpmsgService) { }
 
    cards:card[]=[
      {
@@ -69,7 +71,7 @@ export class CardServiceService {
 
 
   getCards():Observable<card[]>{
-    return of(this.cards).pipe(delay(100));
+    return this.http.get<card[]>('http://127.0.0.1:8000/scrumboards/cards/').pipe(catchError(this.processhttpmsg.handleError))
   }
 
   getCardsbyId(id:number):Observable<card[]>{
