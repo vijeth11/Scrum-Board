@@ -36,8 +36,8 @@ export class ScrumboardComponent implements OnInit {
     })
   }
 
-  selectionclicked(list:List){
-    console.log(list);
+  selectionclicked(list:List,id:number){
+    this.updateCard(id,null,list);
   }
 
 
@@ -67,12 +67,49 @@ export class ScrumboardComponent implements OnInit {
     });
   }
 
-  deleteCard(id:number){
+  deleteCard(id:number,tempcard:card=null){
     this.cardservice.deleteCard(id).subscribe((result)=>{
+      console.log(result);
+      if(tempcard!=null)
+      {
+      this.cardservice.addNewCard(tempcard).subscribe((result)=>{
+        console.log(result);
+        this.updateCardsList();
+       },(error)=>{
+           alert(error);
+       });
+      }
+      else{
+        this.updateCardsList();
+      }
+    },(error)=>{
+      alert(error);
+    });
+    
+  }
+
+  updateCard(id:number,card:any,list:any){
+    console.log("id "+id);
+    console.log("card "+card);
+    console.log("list "+list);
+    var tempcard:card=null;
+    for( var data of this.cards){
+      if(data.id==id)
+      tempcard=data;
+    }
+
+    if(tempcard!=null && tempcard.list==list && card!=null){
+    this.cardservice.updateCard(id,card).subscribe((result)=>{
       console.log(result);
       this.updateCardsList();
     },(error)=>{
       alert(error);
     });
+  }
+  else if(tempcard!=null && tempcard.list!=list.id)
+   {
+    tempcard.list=list.id;
+    this.deleteCard(id,tempcard);
+   }
   }
 }

@@ -90,4 +90,13 @@ export class CardServiceService {
   deleteCard(id:number):Observable<any>{
     return this.http.delete<any>('http://127.0.0.1:8000/scrumboards/cards/'+id+'/').pipe(catchError(this.processhttpmsg.handleError))
   }
+
+  updateCard(id:number,card:any):Observable<card>{
+    const httpOptions={
+      headers: new HttpHeaders({
+        'Content-Type':'application/json'
+      })
+    };
+    return this.http.put<card>('http://127.0.0.1:8000/scrumboards/cards/'+id+'/',card,httpOptions).pipe(catchError(this.processhttpmsg.handleError))
+  }
 }
