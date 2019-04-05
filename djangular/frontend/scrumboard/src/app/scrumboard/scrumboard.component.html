@@ -31,7 +31,7 @@
             </div>
           <mat-action-row style="text-align: right;">
             <button mat-button class="btn btn-danger" (click)="deleteCard(card.id)">Remove</button>
-            <button mat-button class="btn btn-success" (click)="updateCard(card.id,{'title':card.title,'description':description.value,'story_points':story.value,'business_value':business.value,'list':card.list},card.list)" >Update</button>
+            <button mat-button class="btn btn-success" (click)="updateCard(card.id,{'title':card.title,'description':description.value,'story_points':story.value,'business_value':business.value,'list':card.list,'user':'1'},card.list)" >Update</button>
           </mat-action-row>
         </mat-expansion-panel>
 
@@ -75,7 +75,7 @@
                 </div>
               <mat-action-row style="text-align: right;">
                 <button mat-button class="btn btn-danger" (click)="deleteCard(card.id)">Remove</button>
-                <button mat-button class="btn btn-success" (click)="updateCard(card.id,{'title':card.title,'description':description.value,'story_points':story.value,'business_value':business.value,'list':card.list},card.list)">Update</button>
+                <button mat-button class="btn btn-success" (click)="updateCard(card.id,{'title':card.title,'description':description.value,'story_points':story.value,'business_value':business.value,'list':card.list,'user':'1'},card.list)">Update</button>
               </mat-action-row>
             </mat-expansion-panel>
 
@@ -118,7 +118,7 @@
             </div>
           <mat-action-row style="text-align: right;">
             <button mat-button class="btn btn-danger" (click)="deleteCard(card.id)">Remove</button>
-            <button mat-button class="btn btn-success" (click)="updateCard(card.id,{'title':card.title,'description':description.value,'story_points':story.value,'business_value':business.value,'list':card.list},card.list)">Update</button>
+            <button mat-button class="btn btn-success" (click)="updateCard(card.id,{'title':card.title,'description':description.value,'story_points':story.value,'business_value':business.value,'list':card.list,'user':'1'},card.list)">Update</button>
           </mat-action-row>
         </mat-expansion-panel>
 
