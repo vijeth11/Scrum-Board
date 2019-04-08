@@ -16,13 +16,15 @@ import {HttpModule} from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddcardComponent } from './addcard/addcard.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ScrumboardComponent,
-    AddcardComponent
+    AddcardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
