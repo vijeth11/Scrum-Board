@@ -20,11 +20,9 @@ class Login(APIView):
     def post(self,request):
         username=request.data.get("username")
         password = request.data.get("password")
-
-        user=Users.objects.all()
-        for u in user:
-            print(u)
+        user={"username":username,"password":password}
+        users=Users.objects.values_list('id','username','password',named=True).get(username=username,password=password)
+        print(users)
         if user==None:
             return Response({'status':'Unauthorized','message':'Username or password error'},status=status.HTTP_410_UNAUTHORIZED)
-        print(user)
-        return Response({})
+        return Response(UserSerializer(users).data)

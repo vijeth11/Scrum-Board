@@ -16,7 +16,7 @@ class Users(models.Model):
 	password = models.CharField(max_length=30)
 	
 	def __str__(self):
-		return "users: {}".format(self.username)
+		return "users: {}".format(self.username,self.password,self.id)
 		
 @python_2_unicode_compatible
 class Card(models.Model):
