@@ -9,7 +9,7 @@
     />
     Scrum Board
   </a>
-  <li class="nav-item justify-content-end">
+  <li class="nav-item justify-content-end" *ngIf='Loginstatus!="Login"'>
     <a class="btn btn-success login" (click)="changeStatus()" role="button">{{
       Loginstatus
     }}</a>

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {ListserviceService} from '../service/listservice.service';
 import {CardServiceService} from '../service/card-service.service';
 import {List} from '../shared/lists';
 import {card} from '../shared/cards';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { AddcardComponent } from '../addcard/addcard.component';
+import { SESSION_STORAGE, StorageService } from 'angular-webstorage-service';
 @Component({
   selector: 'app-scrumboard',
   templateUrl: './scrumboard.component.html',
@@ -17,7 +18,7 @@ export class ScrumboardComponent implements OnInit {
   selectedValue3:String="Finished";
   Lists:List[];
   cards:card[];
-  constructor(private listService:ListserviceService,private cardservice:CardServiceService, private dialog:MatDialog) {
+  constructor(private listService:ListserviceService,private cardservice:CardServiceService, private dialog:MatDialog,@Inject(SESSION_STORAGE) private storage: StorageService) {
 
    }
 
@@ -99,6 +100,7 @@ export class ScrumboardComponent implements OnInit {
     }
 
     if(tempcard!=null && tempcard.list==list && card!=null){
+      card["user"]=this.storage.get("id");
     this.cardservice.updateCard(id,card).subscribe((result)=>{
       console.log(result);
       this.updateCardsList();

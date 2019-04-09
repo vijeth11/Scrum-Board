@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import {Router} from '@angular/router';
 import { LoginService } from '../service/login.service';
+import { SESSION_STORAGE, StorageService } from 'angular-webstorage-service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,7 +10,7 @@ import { LoginService } from '../service/login.service';
 export class HeaderComponent implements OnInit {
 
   Loginstatus:String = "Login";
-  constructor(private route:Router,private login:LoginService) { }
+  constructor(private route:Router,private login:LoginService,@Inject(SESSION_STORAGE) private storage: StorageService) { }
 
 
   ngOnInit() {
@@ -22,10 +23,10 @@ export class HeaderComponent implements OnInit {
   changeStatus()
   {
     if(this.Loginstatus=="Login"){
-    this.login.login();
-    this.route.navigate(['scrumboard']);
     }
     else{
+      this.storage.remove("username");
+      this.storage.remove("id");
       this.Loginstatus="Login";
       this.route.navigate(['login']);
     }

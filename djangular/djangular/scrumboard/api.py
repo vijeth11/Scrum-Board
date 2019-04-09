@@ -12,7 +12,8 @@ class ListViewSet(ModelViewSet):
     serializer_class = ListSerisalizer
 
 class CardViewSet(ModelViewSet):
-    queryset = Card.objects.all()
+
+    queryset = Card.objects.filter(user=2)
     serializer_class = CardSerializer
 
 class Login(APIView):

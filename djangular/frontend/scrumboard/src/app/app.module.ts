@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddcardComponent } from './addcard/addcard.component';
 import { LoginComponent } from './login/login.component';
+import {StorageServiceModule} from 'angular-webstorage-service';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { LoginComponent } from './login/login.component';
     HttpModule,
     HttpClientModule,
     MatDialogModule,
+    StorageServiceModule,
   ],
   entryComponents: [ AddcardComponent ],
   providers: [],
