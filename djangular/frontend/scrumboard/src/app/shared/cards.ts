@@ -7,4 +7,5 @@ export class card
   story_points: number;
   business_value: number;
   list: number;
+  user:number;
 }

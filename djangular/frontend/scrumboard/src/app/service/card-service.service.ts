@@ -18,7 +18,8 @@ export class CardServiceService {
       description: "test1",
       story_points: 2,
       business_value: 3,
-      list: 1
+      list: 1,
+      user:2
 
      },
      {
@@ -27,7 +28,8 @@ export class CardServiceService {
       description: "test2",
       story_points: 4,
       business_value: 6,
-      list: 1
+      list: 1,
+      user:2
 
      },
      {
@@ -36,7 +38,8 @@ export class CardServiceService {
       description: "test3",
       story_points: 2,
       business_value: 3,
-      list: 2
+      list: 2,
+      user:2
 
      },
      {
@@ -45,7 +48,8 @@ export class CardServiceService {
       description: "test4",
       story_points: 2,
       business_value: 3,
-      list: 2
+      list: 2,
+      user:2
 
      },
      {
@@ -54,7 +58,8 @@ export class CardServiceService {
       description: "test5",
       story_points: 3,
       business_value: 1,
-      list: 3
+      list: 3,
+      user:2
 
      },
      {
@@ -63,7 +68,8 @@ export class CardServiceService {
       description: "test6",
       story_points: 2,
       business_value: 3,
-      list: 3
+      list: 3,
+      user:2
 
      }
   ]
@@ -85,6 +91,7 @@ export class CardServiceService {
         'Content-Type':  'application/json'
       })
     };
+    console.log("new card"+Newcard);
     return this.http.post<card>('http://127.0.0.1:8000/scrumboards/cards/',Newcard,httpOptions).pipe(catchError(this.processhttpmsg.handleError))
   }
 

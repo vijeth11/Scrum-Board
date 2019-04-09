@@ -17,6 +17,15 @@ class CardViewSet(ModelViewSet):
         user = self.request.query_params.get('user',None)
         queryset = Card.objects.filter(user=user)
         return queryset
+
+    def update(self, request):
+        pass
+
+    def partial_update(self, request):
+        pass
+
+    def destroy(self, request):
+        pass
     serializer_class = CardSerializer
 
 class Login(APIView):

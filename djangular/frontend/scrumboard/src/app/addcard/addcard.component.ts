@@ -3,6 +3,7 @@ import {card} from '../shared/cards';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {ListserviceService} from '../service/listservice.service';
 import {List} from '../shared/lists';
+import { SESSION_STORAGE, StorageService } from 'angular-webstorage-service';
 
 @Component({
   selector: 'app-addcard',
@@ -14,7 +15,7 @@ export class AddcardComponent implements OnInit {
   Lists:List[];
   selectedValue3:String="hello";
   
-  constructor(@Inject(MAT_DIALOG_DATA) public data: card, public dialogRef: MatDialogRef<AddcardComponent>,private listService:ListserviceService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: card, public dialogRef: MatDialogRef<AddcardComponent>,private listService:ListserviceService,@Inject(SESSION_STORAGE) private storage: StorageService) { }
 
   ngOnInit() {
     this.listService.getLists().subscribe((result)=>{
@@ -32,6 +33,7 @@ export class AddcardComponent implements OnInit {
     this.data.description=description;
     this.data.story_points=story;
     this.data.business_value=business;
+    this.data.user=this.storage.get("id");
     console.log({"title":title,"description":description,"story":story,"business":business})
     this.dialogRef.close(this.data);
   }
