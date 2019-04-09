@@ -5,9 +5,9 @@ from rest_framework.routers import DefaultRouter
 
 router=DefaultRouter()
 router.register(r'lists',ListViewSet)
-router.register(r'cards',CardViewSet)
 
 urlpatterns= [
-    url(r'^login',Login.as_view())
+    url(r'^login',Login.as_view()),
+    url(r'cards',CardViewSet.as_view({'get':'list'}))
 ]
 urlpatterns+=router.urls

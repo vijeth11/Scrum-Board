@@ -70,8 +70,9 @@ export class CardServiceService {
 
 
 
-  getCards():Observable<card[]>{
-    return this.http.get<card[]>('http://127.0.0.1:8000/scrumboards/cards/').pipe(catchError(this.processhttpmsg.handleError))
+  getCards(id:number):Observable<card[]>{
+    console.log(id);
+    return this.http.get<card[]>('http://127.0.0.1:8000/scrumboards/cards/?user='+id.toString()).pipe(catchError(this.processhttpmsg.handleError));
   }
 
   getCardsbyId(id:number):Observable<card[]>{

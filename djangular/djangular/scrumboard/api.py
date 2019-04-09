@@ -13,7 +13,10 @@ class ListViewSet(ModelViewSet):
 
 class CardViewSet(ModelViewSet):
 
-    queryset = Card.objects.filter(user=2)
+    def get_queryset(self):
+        user = self.request.query_params.get('user',None)
+        queryset = Card.objects.filter(user=user)
+        return queryset
     serializer_class = CardSerializer
 
 class Login(APIView):

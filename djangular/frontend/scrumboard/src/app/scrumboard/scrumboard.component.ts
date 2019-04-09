@@ -29,7 +29,7 @@ export class ScrumboardComponent implements OnInit {
     },(error)=>{
       alert(error);
     })
-    this.cardservice.getCards().subscribe((result)=>{
+    this.cardservice.getCards(this.storage.get("id")).subscribe((result)=>{
       this.cards=result;
       console.log(result);
     },(error)=>{
@@ -62,7 +62,7 @@ export class ScrumboardComponent implements OnInit {
   }
 
    updateCardsList(){
-    this.cardservice.getCards().subscribe((result)=>{
+    this.cardservice.getCards(this.storage.get("id")).subscribe((result)=>{
       this.cards=result;
       console.log(result);
     });
