@@ -91,12 +91,13 @@ export class CardServiceService {
         'Content-Type':  'application/json'
       })
     };
-    console.log("new card"+Newcard);
+    console.log("new card");
+    console.log(Newcard);
     return this.http.post<card>('http://127.0.0.1:8000/scrumboards/cards/',Newcard,httpOptions).pipe(catchError(this.processhttpmsg.handleError))
   }
 
   deleteCard(id:number):Observable<any>{
-    return this.http.delete<any>('http://127.0.0.1:8000/scrumboards/cards/'+id+'/').pipe(catchError(this.processhttpmsg.handleError))
+    return this.http.delete<any>('http://127.0.0.1:8000/scrumboards/cards/?pk='+id).pipe(catchError(this.processhttpmsg.handleError))
   }
 
   updateCard(id:number,card:any):Observable<card>{
@@ -105,6 +106,6 @@ export class CardServiceService {
         'Content-Type':'application/json'
       })
     };
-    return this.http.put<card>('http://127.0.0.1:8000/scrumboards/cards/'+id+'/',card,httpOptions).pipe(catchError(this.processhttpmsg.handleError))
+    return this.http.put<card>('http://127.0.0.1:8000/scrumboards/cards/?pk='+id,card,httpOptions).pipe(catchError(this.processhttpmsg.handleError))
   }
 }

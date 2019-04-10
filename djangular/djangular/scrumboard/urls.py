@@ -8,6 +8,6 @@ router.register(r'lists',ListViewSet)
 
 urlpatterns= [
     url(r'^login',Login.as_view()),
-    url(r'cards',CardViewSet.as_view({'get':'list','post':'create','put':'update','delete':'destroy'}))
+    url(r'cards',CardViewSet.as_view({'get':'list','post':'create','put':'partial_update','delete':'destroy'}))
 ]
 urlpatterns+=router.urls

@@ -22,10 +22,21 @@ class CardViewSet(ModelViewSet):
         pass
 
     def partial_update(self, request):
-        pass
+        id= request.query_params.get('pk')
+        data = request.data;
+        queryset = Card.objects.get(id=id);
+        serialiser=CardSerializer(queryset,data=data)
+        if serialiser.is_valid():
+            serialiser.save()
+            return Response(serialiser.data)
+        return Response(status,status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request):
-        pass
+        id= request.query_params.get('pk')
+        queryset = Card.objects.filter(id=id).delete()
+        serializer = CardSerializer(queryset);
+        return Response({"deleted":"sucessfully"})
+
     serializer_class = CardSerializer
 
 class Login(APIView):

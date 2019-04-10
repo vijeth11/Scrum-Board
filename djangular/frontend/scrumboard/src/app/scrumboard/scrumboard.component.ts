@@ -111,6 +111,8 @@ export class ScrumboardComponent implements OnInit {
   else if(tempcard!=null && tempcard.list!=list.id)
    {
     tempcard.list=list.id;
+    console.log("delete card is being called");
+    console.log(tempcard);
     this.deleteCard(id,tempcard);
    }
   }
