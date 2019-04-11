@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
     }
     else{
       this.storage.remove("username");
-      this.storage.remove("id");
+      this.storage.remove("userid");
       this.Loginstatus="Login";
       this.route.navigate(['login']);
     }

@@ -25,13 +25,13 @@ export class ScrumboardComponent implements OnInit {
   ngOnInit() {
     this.listService.getLists().subscribe((result)=>{
       this.Lists=result;
-      console.log(result);
+      
     },(error)=>{
       alert(error);
     })
-    this.cardservice.getCards(this.storage.get("id")).subscribe((result)=>{
+    this.cardservice.getCards(this.storage.get("userid")).subscribe((result)=>{
       this.cards=result;
-      console.log(result);
+      
     },(error)=>{
       alert(error);
     })
@@ -49,10 +49,7 @@ export class ScrumboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
-      this.cardservice.addNewCard(result).subscribe((result)=>{
-            console.log(result);
+      this.cardservice.addNewCard(result).subscribe((result)=>{           
             this.updateCardsList();
       },(error)=>{
         alert(error);
@@ -62,19 +59,18 @@ export class ScrumboardComponent implements OnInit {
   }
 
    updateCardsList(){
-    this.cardservice.getCards(this.storage.get("id")).subscribe((result)=>{
+    this.cardservice.getCards(this.storage.get("userid")).subscribe((result)=>{
       this.cards=result;
-      console.log(result);
     });
   }
 
   deleteCard(id:number,tempcard:card=null){
     this.cardservice.deleteCard(id).subscribe((result)=>{
-      console.log(result);
+     
       if(tempcard!=null)
       {
       this.cardservice.addNewCard(tempcard).subscribe((result)=>{
-        console.log(result);
+        
         this.updateCardsList();
        },(error)=>{
            alert(error);
@@ -90,9 +86,7 @@ export class ScrumboardComponent implements OnInit {
   }
 
   updateCard(id:number,card:any,list:any){
-    console.log("id "+id);
-    console.log("card "+card);
-    console.log("list "+list);
+    
     var tempcard:card=null;
     for( var data of this.cards){
       if(data.id==id)
@@ -100,9 +94,9 @@ export class ScrumboardComponent implements OnInit {
     }
 
     if(tempcard!=null && tempcard.list==list && card!=null){
-      card["user"]=this.storage.get("id");
+      card["user"]=this.storage.get("userid");
     this.cardservice.updateCard(id,card).subscribe((result)=>{
-      console.log(result);
+      
       this.updateCardsList();
     },(error)=>{
       alert(error);
@@ -111,8 +105,6 @@ export class ScrumboardComponent implements OnInit {
   else if(tempcard!=null && tempcard.list!=list.id)
    {
     tempcard.list=list.id;
-    console.log("delete card is being called");
-    console.log(tempcard);
     this.deleteCard(id,tempcard);
    }
   }

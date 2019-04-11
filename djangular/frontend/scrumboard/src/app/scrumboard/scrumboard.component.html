@@ -17,7 +17,7 @@
             <mat-form-field style="width:25%">
               <mat-label>Select List</mat-label>
               <mat-select [(value)]="selectedValue1" name="selectedValue1">
-                <mat-option *ngFor="let List of Lists" (click)="selectionclicked(List,card.id)"[value]="List.id">
+                <mat-option *ngFor="let List of Lists" (click)="selectionclicked(List,card.id)"[value]="List.name">
                   {{List.name}}
                 </mat-option>
               </mat-select>
@@ -61,7 +61,7 @@
                 <mat-form-field style="width:25%">
                   <mat-label>Select List</mat-label>
                   <mat-select [(value)]="selectedValue2" name="selectedValue2">
-                    <mat-option *ngFor="let List of Lists" (click)="selectionclicked(List,card.id)" [value]="List.id">
+                    <mat-option *ngFor="let List of Lists" (click)="selectionclicked(List,card.id)" [value]="List.name">
                       {{List.name}}
                     </mat-option>
                   </mat-select>
@@ -104,7 +104,7 @@
             <mat-form-field style="width:25%">
               <mat-label>Select List</mat-label>
               <mat-select [(value)]="selectedValue3" name="selectedValue3">
-                <mat-option *ngFor="let List of Lists" (click)="selectionclicked(List,card.id)" [value]="List.id">
+                <mat-option *ngFor="let List of Lists" (click)="selectionclicked(List,card.id)" [value]="List.name">
                   {{List.name}}
                 </mat-option>
               </mat-select>

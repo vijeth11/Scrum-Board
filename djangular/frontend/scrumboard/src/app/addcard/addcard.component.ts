@@ -20,7 +20,6 @@ export class AddcardComponent implements OnInit {
   ngOnInit() {
     this.listService.getLists().subscribe((result)=>{
       this.Lists=result;
-      console.log(result);
     })
   }
 
@@ -33,13 +32,11 @@ export class AddcardComponent implements OnInit {
     this.data.description=description;
     this.data.story_points=story;
     this.data.business_value=business;
-    this.data.user=this.storage.get("id");
-    console.log({"title":title,"description":description,"story":story,"business":business})
+    this.data.user=this.storage.get("userid");
     this.dialogRef.close(this.data);
   }
 
   selectionclicked(list){
-    console.log(list);
     this.data.list=list.id;
   }
 }

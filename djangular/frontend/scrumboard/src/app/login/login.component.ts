@@ -23,8 +23,7 @@ export class LoginComponent implements OnInit {
   {
     var user:any={"username":username,"password":password};
     this.loginservice.login(user).subscribe((result)=>{
-      console.log(result);
-      this.storage.set("id",result["id"]);
+      this.storage.set("userid",result["id"]);
       this.storage.set("username",result["username"]);
       this.loginservice.LoginStatus.next("Logout");
      this.router.navigate(['scrumboard']);
