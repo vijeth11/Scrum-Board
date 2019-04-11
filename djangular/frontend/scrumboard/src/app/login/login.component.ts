@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     this.SignIn=true;
     this.Register=false;
   }
- 
+
   login(username:string,password:string)
   {
     var user:any={"username":username,"password":password};
@@ -31,16 +31,24 @@ export class LoginComponent implements OnInit {
     (error)=>{
       alert(error);
     });
-     
+
   }
   register(username:string,password:string,confirmpassword:string)
   {
+    console.log("calling register");
     if(password==confirmpassword)
     {
-      this.Register=false;
-      this.router.navigate(['login']);
+      var user:any ={"username":username,"password":password}
+      this.loginservice.register(user).subscribe((result)=>{
+        console.log(result)
+        this.Register=false;
+        this.router.navigate(['login']);
+      },
+      (error)=>{
+        alert(error);
+      });
     }
   }
-  
+
 
 }

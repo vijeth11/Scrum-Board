@@ -21,4 +21,15 @@ export class LoginService {
     };
     return this.http.post<any>('http://127.0.0.1:8000/scrumboards/login/',user,httpOptions).pipe(catchError(this.processhttpmsg.handleError));
   }
+
+  register(user:any):Observable<any>
+  {
+    console.log(user);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.put<any>('http://127.0.0.1:8000/scrumboards/login/',user,httpOptions).pipe(catchError(this.processhttpmsg.handleError));
+  }
 }

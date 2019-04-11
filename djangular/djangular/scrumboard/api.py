@@ -50,3 +50,12 @@ class Login(APIView):
         if user==None:
             return Response({'status':'Unauthorized','message':'Username or password error'},status=status.HTTP_410_UNAUTHORIZED)
         return Response(UserSerializer(users).data)
+
+    def put(self,request):
+        data = request.data;
+        queryset= Users.objects.create()
+        serializer= UserSerializer(queryset,data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"registered":"sucessfull"})
+        return Response(status,status.HTTP_400_BAD_REQUEST)
