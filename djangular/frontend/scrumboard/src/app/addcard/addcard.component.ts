@@ -33,10 +33,14 @@ export class AddcardComponent implements OnInit {
     this.data.story_points=story;
     this.data.business_value=business;
     this.data.user=this.storage.get("userid");
+    console.log("data before closing");
+    console.log(this.data);
     this.dialogRef.close(this.data);
   }
 
   selectionclicked(list){
+    console.log("selected");
+    console.log(list);
     this.data.list=list.id;
   }
 }

@@ -49,6 +49,8 @@ export class ScrumboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      console.log("recieved data");
+      console.log(result);
       this.cardservice.addNewCard(result).subscribe((result)=>{           
             this.updateCardsList();
       },(error)=>{

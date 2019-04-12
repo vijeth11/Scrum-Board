@@ -29,7 +29,8 @@ export class LoginComponent implements OnInit {
      this.router.navigate(['scrumboard']);
     },
     (error)=>{
-      alert(error);
+      console.log(error);
+      alert("user not registered please register");
     });
 
   }
